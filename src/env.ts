@@ -4,7 +4,7 @@ function required(name: string): string {
   return v;
 }
 
-const paymentDriver = process.env.PAYMENT_DRIVER;
+const paymentDriver = process.env.PAYMENT_DRIVER || "mock";
 const APP_ENV = process.env.APP_ENV ?? "development"; // development | staging | production
 
 if (paymentDriver !== "mock" && paymentDriver !== "zarinpal") {
