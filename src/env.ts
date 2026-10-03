@@ -5,11 +5,17 @@ function required(name: string): string {
 }
 
 const paymentDriver = process.env.PAYMENT_DRIVER;
+const APP_ENV = process.env.APP_ENV ?? "development"; // development | staging | production
+
 if (paymentDriver !== "mock" && paymentDriver !== "zarinpal") {
-  throw new Error('PAYMENT_DRIVER must be "mock" or "zarinpal"');
+  throw new Error(
+    'PAYMENT_DRIVER must be "mock" or "zarinpal"',
+  );
 }
 
-if (process.env.NODE_ENV === "production" && paymentDriver === "mock") {
+const isProd = APP_ENV === "production";
+
+if (isProd && paymentDriver === "mock") {
   throw new Error("PAYMENT_DRIVER=mock is not allowed in production");
 }
 
@@ -24,7 +30,6 @@ export const env = {
   PAYMENT_DRIVER: paymentDriver,
 } as const;
 
-
-if (env.NODE_ENV === "production" && env.SMS_DRIVER === "console") {
+if (isProd && env.SMS_DRIVER === "console") {
   throw new Error("SMS_DRIVER=console is not allowed in production");
 }
