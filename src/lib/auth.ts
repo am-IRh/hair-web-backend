@@ -9,6 +9,12 @@ const E164 = /^\+[1-9]\d{7,14}$/;
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, { provider: "pg" }),
+  advanced: {
+  defaultCookieAttributes: {
+    sameSite: "none",
+    secure: true,
+  },
+},
   trustedOrigins: [env.WEB_ORIGIN],
   plugins: [
     phoneNumber({

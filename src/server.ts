@@ -9,10 +9,12 @@ import { publicApi } from "./routes/public.js";
 const app = new Hono();
 
 app.use(
-  "/api/auth/*",
+  "/api/*",
   cors({
     origin: env.WEB_ORIGIN,
     credentials: true,
+    allowHeaders: ["Content-Type", "Authorization"],
+    allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   }),
 );
 
