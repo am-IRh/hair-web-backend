@@ -1,5 +1,6 @@
 {
   "name": "pk-backend",
+  "type": "module",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "db:auth": "bunx --bun auth@latest generate --config src/lib/auth.ts --output src/db/auth-schema.ts --yes",
