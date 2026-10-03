@@ -1,6 +1,6 @@
 import { and, eq, gte, sql } from "drizzle-orm";
-import type { Tx } from "../db";
-import { wallet, walletTransaction } from "../db/schema";
+import type { Tx } from "../db/index.js";
+import { wallet, walletTransaction } from "../db/schema.js";
 
 export class InsufficientBalanceError extends Error {
   constructor() {

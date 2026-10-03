@@ -1,10 +1,10 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { auth } from "./lib/auth";
-import { env } from "./env";
+import { auth } from "./lib/auth.js";
+import { env } from "./env.js";
 import { HTTPException } from "hono/http-exception";
-import { protectedApi } from "./routes/protected";
-import { publicApi } from "./routes/public";
+import { protectedApi } from "./routes/protected.js";
+import { publicApi } from "./routes/public.js";
 
 const app = new Hono();
 

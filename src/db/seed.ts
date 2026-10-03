@@ -1,6 +1,6 @@
 import { sql } from "drizzle-orm";
-import { db } from "./index";
-import { course, plan } from "./schema";
+import { db } from "./index.js";
+import { course, plan } from "./schema.js";
 
 // These are DEV placeholders and they are published. Never run this against production.
 if (process.env.NODE_ENV === "production") {

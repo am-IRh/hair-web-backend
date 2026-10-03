@@ -1,8 +1,8 @@
 import { and, eq, gte, sql } from "drizzle-orm";
-import { db } from "../../db";
-import { payment } from "../../db/schema";
-import { env } from "../../env";
-import { getGateway } from "./index";
+import { db } from "../../db/index.js";
+import { payment } from "../../db/schema.js";
+import { env } from "../../env.js";
+import { getGateway } from "./index.js";
 
 const MAX_PENDING_PER_HOUR = 10;
 

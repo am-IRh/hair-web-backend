@@ -1,9 +1,9 @@
 import { Hono } from "hono";
-import { db } from "../db";
-import { course, plan } from "../db/schema";
-import { env } from "../env";
-import { settlePayment } from "../lib/payments/settle";
-import { findPublishedCourse } from "../lib/courses";
+import { db } from "../db/index.js";
+import { course, plan } from "../db/schema.js";
+import { env } from "../env.js";
+import { settlePayment } from "../lib/payments/settle.js";
+import { findPublishedCourse } from "../lib/courses.js";
 import { zValidator } from "@hono/zod-validator";
 import { z } from "zod";
 import { asc, desc, eq, sql } from "drizzle-orm";

@@ -2,12 +2,12 @@ import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { z } from "zod";
 import { and, asc, desc, eq, gt } from "drizzle-orm";
-import { db } from "../db";
-import { course, enrollment, plan, subscription, wallet, walletTransaction } from "../db/schema";
-import { findPublishedCourse, hasCourseAccess } from "../lib/courses";
-import { startGatewayPayment } from "../lib/payments/start";
-import { debitWallet, InsufficientBalanceError, lockWallet } from "../lib/wallet";
-import { requireAuth, type AuthEnv } from "../middleware/require-auth";
+import { db } from "../db/index.js";
+import { course, enrollment, plan, subscription, wallet, walletTransaction } from "../db/schema.js";
+import { findPublishedCourse, hasCourseAccess } from "../lib/courses.js";
+import { startGatewayPayment } from "../lib/payments/start.js";
+import { debitWallet, InsufficientBalanceError, lockWallet } from "../lib/wallet.js";
+import { requireAuth, type AuthEnv } from "../middleware/require-auth.js";
 
 const MIN_TOPUP = 10_000; // Toman, adjust to your business rules
 const MAX_TOPUP = 50_000_000;

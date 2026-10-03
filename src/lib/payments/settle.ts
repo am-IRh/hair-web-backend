@@ -1,9 +1,9 @@
 // src/lib/payments/settle.ts
 import { and, eq } from "drizzle-orm";
-import { db } from "../../db";
-import { course, enrollment, payment } from "../../db/schema";
-import { creditWallet, debitWallet } from "../wallet";
-import { getGateway } from "./index";
+import { db } from "../../db/index.js";
+import { course, enrollment, payment } from "../../db/schema.js";
+import { creditWallet, debitWallet } from "../wallet.js";
+import { getGateway } from "./index.js";
 
 export type SettleResult = "success" | "failed" | "pending" | "unknown";
 export type SettleOutcome = { result: SettleResult; courseSlug: string | null };

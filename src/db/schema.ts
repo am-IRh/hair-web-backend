@@ -1,2 +1,2 @@
-export * from "./auth-schema";
-export * from "./billing-schema";
+export * from "./auth-schema.js";
+export * from "./billing-schema.js";

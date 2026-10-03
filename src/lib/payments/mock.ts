@@ -1,5 +1,5 @@
-import { env } from "../../env";
-import type { PaymentGateway } from "./types";
+import { env } from "../../env.js";
+import type { PaymentGateway } from "./types.js";
 
 export const mockGateway: PaymentGateway = {
   name: "mock",

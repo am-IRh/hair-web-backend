@@ -1,10 +1,9 @@
 {
   "name": "pk-backend",
   "type": "module",
-  "main": "dist/server.mjs",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "bun run --hot src/server.ts",
-    "build": "tsdown",
     "db:auth": "bunx --bun auth@latest generate --config src/lib/auth.ts --output src/db/auth-schema.ts --yes",
     "db:generate": "bunx --bun drizzle-kit generate",
     "db:migrate": "bunx --bun drizzle-kit migrate",

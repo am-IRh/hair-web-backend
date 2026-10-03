@@ -1,6 +1,6 @@
 import { and, eq } from "drizzle-orm";
-import { db } from "../db";
-import { course, enrollment } from "../db/schema";
+import { db } from "../db/index.js";
+import { course, enrollment } from "../db/schema.js";
 
 export async function findPublishedCourse(slug: string) {
   const [row] = await db

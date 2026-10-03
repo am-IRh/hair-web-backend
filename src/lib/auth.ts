@@ -1,9 +1,9 @@
 import { betterAuth } from "better-auth";
 import { phoneNumber } from "better-auth/plugins";
 import { drizzleAdapter } from "@better-auth/drizzle-adapter";
-import { db } from "../db";
-import { env } from "../env";
-import { sendSms } from "./sms";
+import { db } from "../db/index.js";
+import { env } from "../env.js";
+import { sendSms } from "./sms.js";
 
 const E164 = /^\+[1-9]\d{7,14}$/;
 

@@ -1,4 +1,4 @@
-import { env } from "../env";
+import { env } from "../env.js";
 
 export async function sendSms(to: string, message: string): Promise<void> {
   if (env.SMS_DRIVER === "console") {
