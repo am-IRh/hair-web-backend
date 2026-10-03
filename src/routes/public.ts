@@ -30,11 +30,22 @@ publicApi.get("/plans", async (c) => {
 // The gateway redirects the user's browser here with GET, and it changes state.
 // That is why settlePayment is idempotent and never trusts the query string.
 publicApi.get("/payments/callback", async (c) => {
-  const result = await settlePayment({
+  const paymentResult = await settlePayment({
     authority: c.req.query("Authority"),
     callbackStatus: c.req.query("Status"),
   });
-  return c.redirect(`${env.WEB_ORIGIN}/dashboard/wallet?payment=${result}`);
+  const {result, courseSlug} = paymentResult
+   let path: string;
+  if (courseSlug) {
+    // paid (or still being verified): show it in the panel; failed/cancelled: back to the course to retry
+    path =
+      result === "success" || result === "pending"
+        ? `/dashboard/courses?payment=${result}`
+        : `/courses/${encodeURIComponent(courseSlug)}?payment=${result}`;
+  } else {
+    path = `/dashboard/wallet?payment=${result}`;
+  }
+  return c.redirect(`${env.WEB_ORIGIN}${path}`);
 });
 
 const listQuery = z.object({
