@@ -4,7 +4,7 @@ export default defineConfig({
   entry: {
     index: "src/app.ts",
   },
-  outDir: "api",
+  outDir: "dist",
   format: "esm",
   platform: "node",
   sourcemap: true,

@@ -21,6 +21,9 @@ app.route("/api", publicApi);
 app.all("/api/auth/*", (c) => auth.handler(c.req.raw));
 
 app.route("/api", protectedApi);
+app.get('/', (c) => {
+  return c.text("Hello hono")
+})
 
 app.onError((err, c) => {
   if (err instanceof HTTPException) return err.getResponse();
