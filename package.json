@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
+    "build": "tsdown",
     "db:auth": "bunx --bun auth@latest generate --config src/lib/auth.ts --output src/db/auth-schema.ts --yes",
     "db:generate": "bunx --bun drizzle-kit generate",
     "db:migrate": "bunx --bun drizzle-kit migrate",
@@ -22,6 +23,10 @@
     "@types/bun": "latest",
     "@types/pg": "^8.23.1",
     "drizzle-kit": "^0.31.10",
+    "tsdown": "^0.23.0",
     "typescript": "^7.0.2"
-  }
+  },
+  "engines": {
+  "node": "22.x"
+}
 }
