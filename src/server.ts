@@ -35,4 +35,9 @@ app.onError((err, c) => {
   return c.json({ error: "internal_error" }, 500);
 });
 
-export default app;
+// export default app;
+export default {
+  port: env.PORT,
+  hostname: "127.0.0.1",
+  fetch: app.fetch,
+};
